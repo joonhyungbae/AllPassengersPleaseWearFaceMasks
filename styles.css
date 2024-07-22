@@ -40,6 +40,10 @@ body, html {
     font-size: 16px;
     box-sizing: border-box;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 /* 스크롤바 숨기기 */
