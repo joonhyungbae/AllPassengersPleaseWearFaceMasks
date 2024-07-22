@@ -2,6 +2,7 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
+    width: 100%;
     overflow: hidden;
     font-family: 'Noto Serif KR', serif;
     background-color: #100411; /* 배경색 설정 */
@@ -10,28 +11,34 @@ body, html {
 
 .container {
     position: relative;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     display: flex;
-    flex-direction: column; /* 수직 방향으로 배치 */
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
 }
 
 .fixed-image {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 50%; /* 화면의 절반을 이미지에 할당 */
+    height: 100%;
     background: url('img.png') no-repeat center center;
     background-size: cover;
+    z-index: 2; /* 이미지가 위에 오도록 설정 */
 }
 
 .scrolling-text {
+    position: relative;
     width: 100%;
-    height: 50%; /* 화면의 나머지 절반을 텍스트 박스에 할당 */
+    height: 100%;
     overflow-y: scroll;
-    background-color: #100411; /* 텍스트 박스 배경색 */
+    background-color: rgba(16, 4, 17, 0.8); /* 텍스트 박스 배경색 */
     padding: 20px;
+    z-index: 1; /* 텍스트 박스가 이미지 위에 오도록 설정 */
     font-size: 16px;
+    box-sizing: border-box; /* 패딩을 포함한 전체 크기를 설정 */
 }
 
 /* 스크롤바 숨기기 */
@@ -61,8 +68,6 @@ body, html {
 /* 반응형 디자인을 위한 미디어 쿼리 */
 @media (max-width: 600px) {
     .scrolling-text {
-        width: 100%;
-        height: 50%;
         font-size: 14px;
         padding: 15px;
     }
